@@ -75,8 +75,56 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
+/* ─── TidyCal embed overrides ────────────────────────────── */
+
+/* The embed div is the ONLY container — no wrapper needed */
+.tidycal-embed {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Strip all injected intermediate elements */
+.tidycal-embed *:not(iframe) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* iframe: the only visual element */
+.tidycal-embed iframe {
+  border: none !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  background: white;
+  display: block;
+  width: 100% !important;
+  min-height: 660px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Scrollbar — overlay so it doesn't consume layout space */
+html {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #6C3FE6 transparent;
+}
+.dark {
+  scrollbar-color: #6C3FE6 #0B0B14;
+}
+::-webkit-scrollbar { width: 6px; background: transparent; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #6C3FE6; border-radius: 3px; }
 .dark ::-webkit-scrollbar-track { background: #0B0B14; }
+
+/* Overlay scrollbar on supported browsers — no layout shift */
+@supports (overflow: overlay) {
+  html { overflow-y: overlay; }
+}

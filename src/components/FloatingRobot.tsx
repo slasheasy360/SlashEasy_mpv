@@ -145,9 +145,9 @@ export default function FloatingRobot() {
     <div
       ref={wrapperRef}
       className="absolute z-30 pointer-events-none
-        -top-[52px] right-3
-        md:-top-[68px] md:right-5
-        lg:-top-[78px] lg:right-8"
+        -top-[36px] -right-2
+        md:-top-[48px] md:right-0
+        lg:-top-[54px] lg:right-2"
     >
       {/* CSS: idle float + glow — runs independently of JS cursor layer */}
       <style>{`

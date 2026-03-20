@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
-
 const PLANS = [
   {
     name: "Starter",
@@ -94,7 +92,7 @@ const cardVariants = {
 };
 
 export default function Pricing() {
-  const [isAnnual, setIsAnnual] = useState(true);
+  const isAnnual = true;
 
   return (
     <section className="relative py-24 md:py-32 bg-white/60 dark:bg-surface-dark-card/60 transition-colors duration-300 overflow-hidden" id="pricing">
@@ -112,7 +110,7 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
           <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-light dark:bg-brand-primary/10 text-brand-primary text-[13px] font-semibold tracking-wide mb-4">
             Pricing
@@ -124,52 +122,6 @@ export default function Pricing() {
           <p className="mt-5 text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
             No hidden fees. No hourly billing. Fixed price, fixed timeline, clear deliverables.
           </p>
-        </motion.div>
-
-        {/* Toggle */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-          className="flex items-center justify-center gap-3 mb-14"
-        >
-          <span
-            className={`text-sm font-medium cursor-pointer transition-colors duration-200 ${
-              !isAnnual ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"
-            }`}
-            onClick={() => setIsAnnual(false)}
-          >
-            Monthly
-          </span>
-          <button
-            onClick={() => setIsAnnual(!isAnnual)}
-            className={`relative w-14 h-7 rounded-full transition-colors duration-300 focus:outline-none ${
-              isAnnual
-                ? "bg-gradient-to-r from-brand-primary to-brand-secondary"
-                : "bg-gray-300 dark:bg-gray-600"
-            }`}
-            aria-label="Toggle billing period"
-          >
-            <div
-              className={`absolute top-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-transform duration-300 ${
-                isAnnual ? "translate-x-7.5" : "translate-x-0.5"
-              }`}
-            />
-          </button>
-          <span
-            className={`text-sm font-medium cursor-pointer transition-colors duration-200 ${
-              isAnnual ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"
-            }`}
-            onClick={() => setIsAnnual(true)}
-          >
-            Annual
-          </span>
-          {isAnnual && (
-            <span className="ml-1 px-2.5 py-0.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[11px] font-bold">
-              Save 20%
-            </span>
-          )}
         </motion.div>
 
         {/* Cards */}
@@ -322,16 +274,29 @@ export default function Pricing() {
                 </ul>
 
                 {/* CTA */}
-                <a
-                  href={plan.ctaHref}
-                  className={`relative block w-full py-3.5 rounded-2xl text-center font-semibold text-[15px] mt-8 transition-all duration-300 overflow-hidden group/btn ${
-                    plan.popular
-                      ? "bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/40 hover:scale-[1.02] active:scale-[0.98]"
-                      : "bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
-                  }`}
-                >
-                  <span className="relative z-10">{plan.cta}</span>
-                </a>
+                {plan.cta === "Book Free Call" ? (
+                  <button
+                    onClick={() => document.getElementById("book-call")?.scrollIntoView({ behavior: "smooth" })}
+                    className={`relative block w-full py-3.5 rounded-2xl text-center font-semibold text-[15px] mt-8 transition-all duration-300 overflow-hidden group/btn cursor-pointer ${
+                      plan.popular
+                        ? "bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/40 hover:scale-[1.02] active:scale-[0.98]"
+                        : "bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                    }`}
+                  >
+                    <span className="relative z-10">{plan.cta}</span>
+                  </button>
+                ) : (
+                  <a
+                    href={plan.ctaHref}
+                    className={`relative block w-full py-3.5 rounded-2xl text-center font-semibold text-[15px] mt-8 transition-all duration-300 overflow-hidden group/btn ${
+                      plan.popular
+                        ? "bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/40 hover:scale-[1.02] active:scale-[0.98]"
+                        : "bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                    }`}
+                  >
+                    <span className="relative z-10">{plan.cta}</span>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

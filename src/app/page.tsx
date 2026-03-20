@@ -7,7 +7,6 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-
 export default function Home() {
   return (
     <main className="relative z-0">

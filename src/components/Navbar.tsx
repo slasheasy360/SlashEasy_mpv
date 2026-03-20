@@ -62,7 +62,7 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/80 dark:bg-surface-dark/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-surface-dark-border shadow-sm"
+            ? "bg-white/70 dark:bg-surface-dark/70 backdrop-blur-xl border-b border-gray-200/30 dark:border-surface-dark-border/50"
             : "bg-transparent"
         }`}
       >
@@ -102,12 +102,12 @@ export default function Navbar() {
             {/* Desktop right: toggle + CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <ThemeToggle />
-              <a
-                href="#book-call"
-                className="px-6 py-2.5 rounded-xl text-[15px] font-semibold transition-all duration-200 bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/30 hover:scale-[1.03] active:scale-[0.98]"
+              <button
+                onClick={() => document.getElementById("book-call")?.scrollIntoView({ behavior: "smooth" })}
+                className="px-6 py-2.5 rounded-xl text-[15px] font-semibold transition-all duration-200 bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-lg shadow-brand-primary/25 hover:shadow-xl hover:shadow-brand-primary/30 hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
               >
                 Book Free Call
-              </a>
+              </button>
             </div>
 
             {/* Mobile: toggle + hamburger */}
@@ -151,16 +151,15 @@ export default function Navbar() {
                   {link.label}
                 </motion.a>
               ))}
-              <motion.a
-                href="#book-call"
+              <motion.button
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25, duration: 0.3 }}
-                onClick={() => setMobileOpen(false)}
-                className="mt-4 px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold text-lg shadow-lg"
+                onClick={() => { setMobileOpen(false); document.getElementById("book-call")?.scrollIntoView({ behavior: "smooth" }); }}
+                className="mt-4 px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-semibold text-lg shadow-lg cursor-pointer"
               >
                 Book Free Call
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         )}

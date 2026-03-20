@@ -390,11 +390,11 @@ function HeroText({ center = false, dark }: { center?: boolean; dark: boolean })
 
       {/* CTA Buttons */}
       <div className={`flex flex-wrap gap-3 sm:gap-4 mb-6 lg:mb-8 ${align}`}>
-        <a href="#book" className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 rounded-lg font-semibold text-white text-[14px] sm:text-[15px] transition-all duration-200 hover:brightness-110" style={{ background: `linear-gradient(135deg, #5547F0, #7C3AED)` }}>
+        <button onClick={() => document.getElementById("book-call")?.scrollIntoView({ behavior: "smooth" })} className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 rounded-lg font-semibold text-white text-[14px] sm:text-[15px] transition-all duration-200 hover:brightness-110 cursor-pointer" style={{ background: `linear-gradient(135deg, #5547F0, #7C3AED)` }}>
           Book Free Call <span aria-hidden="true">&rarr;</span>
-        </a>
+        </button>
         <a
-          href="#process"
+          href="#how-it-works"
           className={`inline-flex items-center px-5 sm:px-7 py-3 rounded-lg font-semibold text-[14px] sm:text-[15px] transition-all duration-200 ${dark ? "text-white/80 hover:text-white" : "text-[#334155] hover:text-[#121212]"}`}
           style={{
             border: dark ? `1px solid rgba(255,255,255,0.12)` : `1px solid #D1D5DB`,
@@ -424,7 +424,7 @@ export default function HeroSection() {
   const { dark } = useTheme();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-x-clip">
       {/* ── Background ──────────────────────────────── */}
       {dark ? (
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c0918] via-[#120e2a] to-[#080614]" />
@@ -485,11 +485,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-              className="hidden md:block"
+              className="hidden md:block pb-16"
             >
               <div
                 ref={sceneRef}
-                className="relative w-full mx-auto overflow-hidden"
+                className="relative w-full mx-auto overflow-visible"
                 style={{ maxWidth: `${W}px`, aspectRatio: `${W} / ${H}` }}
               >
                 <VisualScene scale={scale} dark={dark} />
