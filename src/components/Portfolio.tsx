@@ -421,6 +421,14 @@ export default function Portfolio() {
       className="relative py-24 md:py-32 bg-gray-50 dark:bg-surface-dark transition-colors duration-300 overflow-hidden"
       id="portfolio"
     >
+      {/* ── Ambient glow: warm yellow (top-right) ── */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-[5%] -right-[18%] w-[900px] h-[800px] rounded-[50%] opacity-[0.30] dark:opacity-[0.14] blur-[200px] dark:blur-[240px] animate-[glow-breathe_10s_ease-in-out_infinite]"
+          style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(234,179,8,0.7) 0%, rgba(220,165,5,0.25) 45%, rgba(200,150,0,0.05) 65%, transparent 80%)" }}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div

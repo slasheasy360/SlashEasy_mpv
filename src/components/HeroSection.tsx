@@ -405,12 +405,35 @@ function HeroText({ center = false, dark }: { center?: boolean; dark: boolean })
         </a>
       </div>
 
-      {/* Trust stats */}
-      <div className={`flex flex-wrap gap-x-4 lg:gap-x-5 gap-y-2 ${align}`}>
-        {["50+ MVPs shipped", "7-day delivery", "Fixed pricing", "NDA signed Day 1"].map(stat => (
-          <span key={stat} className={`flex items-center gap-1.5 text-[12px] sm:text-[13px] ${dark ? "text-white/40" : "text-[#64748B]"}`}>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={`rgba(${AC},${dark ? 0.5 : 0.6})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            {stat}
+      {/* Trust stats — pill badges */}
+      <div className={`flex flex-wrap gap-2.5 lg:gap-3 ${align}`}>
+        {[
+          { label: "50+ MVPs shipped", icon: "rocket" },
+          { label: "7-day delivery", icon: "clock" },
+          { label: "Fixed pricing", icon: "tag" },
+          { label: "NDA signed Day 1", icon: "shield" },
+        ].map(stat => (
+          <span
+            key={stat.label}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] sm:text-[13px] font-medium transition-colors duration-200 ${
+              dark
+                ? "bg-white/[0.06] text-white/70 border border-white/[0.08]"
+                : "bg-gray-100 text-gray-600 border border-gray-200/60"
+            }`}
+          >
+            {stat.icon === "rocket" && (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={`rgba(${AC},${dark ? 0.6 : 0.7})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/></svg>
+            )}
+            {stat.icon === "clock" && (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={`rgba(${AC},${dark ? 0.6 : 0.7})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            )}
+            {stat.icon === "tag" && (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={`rgba(${AC},${dark ? 0.6 : 0.7})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            )}
+            {stat.icon === "shield" && (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={`rgba(${AC},${dark ? 0.6 : 0.7})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            )}
+            {stat.label}
           </span>
         ))}
       </div>

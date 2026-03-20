@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Pricing", href: "#pricing" },
   { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 function ThemeToggle() {
@@ -42,6 +43,7 @@ function ThemeToggle() {
 }
 
 export default function Navbar() {
+  const { dark } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -62,10 +64,10 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
           scrolled
-            ? "bg-white/70 dark:bg-surface-dark/70 backdrop-blur-xl border-b border-gray-200/30 dark:border-surface-dark-border/50"
-            : "bg-transparent"
+            ? "bg-white/70 dark:bg-surface-dark/70 backdrop-blur-xl border-gray-200/30 dark:border-surface-dark-border/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+            : "bg-transparent border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -73,7 +75,7 @@ export default function Navbar() {
             {/* Logo */}
             <a href="#" className="relative z-10 flex items-center gap-2.5 flex-shrink-0">
               <Image
-                src="/logo1.png"
+                src={dark ? "/logo2.png" : "/logo1.png"}
                 alt="SlashEasy"
                 width={140}
                 height={36}

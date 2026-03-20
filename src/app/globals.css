@@ -98,17 +98,38 @@ body {
   padding: 0 !important;
 }
 
-/* iframe: slightly wider than parent to push scrollbar past the clip edge */
+/* iframe base styles */
 .tidycal-embed iframe {
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   background: white;
   display: block;
-  width: calc(100% + 18px) !important;
-  min-height: 660px;
+  width: calc(100% + 10px) !important;
+  min-height: 500px;
+  height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+/*
+  Desktop: render iframe at a larger native width so TidyCal triggers its
+  3-column horizontal layout. Then scale down to fit the container and
+  clip the height to hide extra bottom padding + "Powered by" bar.
+*/
+@media (min-width: 1024px) {
+  .tidycal-embed {
+    height: 590px;
+    max-height: 590px;
+    overflow: hidden;
+  }
+  .tidycal-embed iframe {
+    width: calc(110% + 12px) !important;
+    height: 610px !important;
+    min-height: unset;
+    transform: scale(1.02);
+    transform-origin: top left;
+  }
 }
 
 /* Scrollbar — overlay so it doesn't consume layout space */

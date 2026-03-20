@@ -17,7 +17,15 @@ export default function BookCall() {
   }, []);
 
   return (
-    <section className="relative py-24 md:py-32 transition-colors duration-300" id="book-call">
+    <section className="relative py-14 md:py-20 transition-colors duration-300 overflow-hidden" id="book-call">
+      {/* ── Ambient glow: purple/blue (left side) ── */}
+      <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-[15%] -left-[20%] w-[900px] h-[800px] rounded-[50%] opacity-[0.25] dark:opacity-[0.12] blur-[200px] dark:blur-[240px] animate-[glow-breathe_12s_ease-in-out_infinite_0.5s]"
+          style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(108,63,230,0.65) 0%, rgba(59,130,246,0.3) 45%, rgba(59,130,246,0.05) 65%, transparent 80%)" }}
+        />
+      </div>
+
       {/* Header — uses standard content padding */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
@@ -25,7 +33,7 @@ export default function BookCall() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-8"
         >
           <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-light dark:bg-brand-primary/10 text-brand-primary text-[13px] font-semibold tracking-wide mb-5">
             Book a Free Call
@@ -41,13 +49,13 @@ export default function BookCall() {
         </motion.div>
       </div>
 
-      {/* TidyCal Embed — own centered container, no extra side padding */}
+      {/* TidyCal Embed — wide container for horizontal 3-column layout */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ delay: 0.2, duration: 0.6 }}
-        className="relative max-w-4xl mx-auto px-4"
+        className="relative max-w-7xl mx-auto px-4 lg:px-8"
       >
         <FloatingRobot />
         <div className="tidycal-embed" data-path="slasheasy/free-30-min-mvp-discovery-call"></div>
@@ -60,7 +68,7 @@ export default function BookCall() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-14"
+          className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-10"
         >
           {[
             "Understand your idea & target users",

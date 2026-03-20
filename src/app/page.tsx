@@ -2,11 +2,13 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import HowItWorks from "@/components/HowItWorks";
 import Services from "@/components/Services";
+import ScopeClarity from "@/components/ScopeClarity";
 import Portfolio from "@/components/Portfolio";
-import BookCall from "@/components/BookCall";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
+import BookCall from "@/components/BookCall";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 export default function Home() {
   return (
@@ -49,11 +51,13 @@ export default function Home() {
       <HeroSection />
       <HowItWorks />
       <Services />
+      <ScopeClarity />
       <Portfolio />
-      <BookCall />
       <Pricing />
       <Testimonials />
       <FinalCTA />
+      <BookCall />
+      <FAQ />
       <Footer />
     </main>
   );
