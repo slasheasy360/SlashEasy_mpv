@@ -47,7 +47,7 @@ export default function FAQ() {
 
   return (
     <section
-      className="relative py-24 md:py-32 bg-white/60 dark:bg-surface-dark-card/60 transition-colors duration-300 overflow-hidden"
+      className="relative py-24 md:py-32 bg-[#F6FAFF] dark:bg-surface-dark-elevated transition-colors duration-300 overflow-hidden"
       id="faq"
     >
       {/* ── Ambient glow: teal/cyan (right side) ── */}

@@ -17,7 +17,7 @@ export default function BookCall() {
   }, []);
 
   return (
-    <section className="relative py-14 md:py-20 transition-colors duration-300 overflow-hidden" id="book-call">
+    <section className="relative py-14 md:py-20 bg-[#F6FAFF] dark:bg-surface-dark-elevated transition-colors duration-300 overflow-hidden" id="book-call">
       {/* ── Ambient glow: purple/blue (left side) ── */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
         <div

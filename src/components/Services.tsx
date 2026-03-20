@@ -13,7 +13,7 @@ const SERVICES = [
       </svg>
     ),
     title: "UI/UX Design",
-    description: "Pixel-perfect interfaces designed for conversion. Clean, modern, and tailored to your brand.",
+    description: "Pixel-perfect, responsive interfaces designed for conversion. Looks great on desktop, tablet, and mobile out of the box.",
   },
   {
     icon: (
@@ -23,7 +23,7 @@ const SERVICES = [
       </svg>
     ),
     title: "Full-Stack Development",
-    description: "React, Next.js, Node, databases — we build your entire stack from auth to API to frontend.",
+    description: "Full auth system, database + backend, up to 3 core features, and 1 payment integration (Stripe/Razorpay) — all production-ready.",
   },
   {
     icon: (
@@ -33,7 +33,7 @@ const SERVICES = [
       </svg>
     ),
     title: "Deployment & DevOps",
-    description: "CI/CD, hosting, domain setup, SSL — your MVP goes live on Day 7, production-ready.",
+    description: "Live deployment on a real URL by Day 7. Hosting, domain setup, SSL — fully functional and production-ready.",
   },
   {
     icon: (
@@ -51,7 +51,7 @@ const SERVICES = [
       </svg>
     ),
     title: "Quality Assurance",
-    description: "Manual + automated testing across devices. We ship stable, bug-free products.",
+    description: "Manual + automated testing across devices. Basic admin panel included to manage your data without touching code.",
   },
   {
     icon: (
@@ -60,7 +60,7 @@ const SERVICES = [
       </svg>
     ),
     title: "Post-Launch Support",
-    description: "Bug fixes, small tweaks, and guidance after launch. We don&apos;t disappear after Day 7.",
+    description: "Full source code handover, daily Loom updates during build, NDA signed Day 1, and post-launch guidance. We don&apos;t disappear after Day 7.",
   },
 ];
 

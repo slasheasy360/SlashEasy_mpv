@@ -169,9 +169,9 @@ function ScrollColumn({
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Top fade */}
-      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-gray-50 dark:from-surface-dark to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#F0F0F8] dark:from-surface-dark-card to-transparent z-10 pointer-events-none" />
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 dark:from-surface-dark to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#F0F0F8] dark:from-surface-dark-card to-transparent z-10 pointer-events-none" />
 
       <div
         ref={columnRef}
@@ -192,7 +192,7 @@ function ScrollColumn({
 export default function Testimonials() {
   return (
     <section
-      className="py-24 md:py-32 bg-gray-50 dark:bg-surface-dark transition-colors duration-300"
+      className="py-24 md:py-32 bg-[#F0F0F8] dark:bg-surface-dark-card transition-colors duration-300"
       id="testimonials"
     >
       <style>{`

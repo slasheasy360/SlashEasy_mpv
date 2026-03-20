@@ -119,15 +119,15 @@ body {
 */
 @media (min-width: 1024px) {
   .tidycal-embed {
-    height: 590px;
-    max-height: 590px;
+    height: 750px;
+    max-height: 750px;
     overflow: hidden;
   }
   .tidycal-embed iframe {
-    width: calc(110% + 12px) !important;
-    height: 610px !important;
+    width: calc(108% + 12px) !important;
+    height: 790px !important;
     min-height: unset;
-    transform: scale(1.02);
+    transform: scale(1);
     transform-origin: top left;
   }
 }

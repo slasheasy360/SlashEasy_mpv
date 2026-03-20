@@ -418,7 +418,7 @@ function PortfolioCard({
 export default function Portfolio() {
   return (
     <section
-      className="relative py-24 md:py-32 bg-gray-50 dark:bg-surface-dark transition-colors duration-300 overflow-hidden"
+      className="relative py-24 md:py-32 bg-[#F6FAFF] dark:bg-surface-dark-elevated transition-colors duration-300 overflow-hidden"
       id="portfolio"
     >
       {/* ── Ambient glow: warm yellow (top-right) ── */}
